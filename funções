@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <iostream>
+
+int fat(int x){
+    if(x ==1){
+        return 1;
+    }
+    else{
+        return x*fat(x-1);
+    }
+}
+
+int fib(int x){
+    if(x<=2){
+        return 1;
+    }
+    else{
+        return fib(x-1)+fib(x-2);
+    }
+}
+
+void hanoi(int x,char ori,char trab,char dest){
+    if(x == 1){
+        printf("mover 1 de %c para %c\n",ori,dest);
+    }else{
+        hanoi(x-1,ori,dest,trab);
+        std::cout <<"Mover " << x << " de " << " para " << dest << std::endl;
+        //printf("Mover %d de %c para %c\n",x,ori,dest);
+        hanoi(x-1,trab,ori,dest);
+    }
+
+}
+
+
+void expo(int a, int n){
+    /*
+    if(n == 0){return 1;}    
+    if(n<0){
+        printf("Erro");
+        return 0;
+    }    
+    if(n == 1){
+    return a;
+    }
+    if (n%2 == 1){
+        return expo(a,n-1)*a;
+    }
+    */
+    /*
+    switch(n){
+        case n<0:
+            printf("Erro");
+            return 0;
+        case 0:
+            return 1;
+        case (n%2 ==1):
+            return expo(a,n-1)*a;
+        default:
+            int p;
+            p = expo(a,n/2);
+            return p*p;
+    }
+    */
+    /*
+    int p;
+    p = expo(a,n/2);
+    return p*p;
+    */
+}
+
+int buscaB(int vetor[],int esq,int dir,int x){
+    if(esq>dir){return -1;}    
+    int meio = esq+(dir- esq)/2;
+    if (x == vetor[meio]){return meio;}
+    if(vetor[meio] < x){return buscaB(vetor,meio+1,dir,x);}
+    if(vetor[meio] > x){return buscaB(vetor,esq,meio-1,x);}
+}
+
+int main(){
+    
+    int vetor[10] = {1,2,3,4,5,6,7,8,9,10};
+    int n;
+    printf("numero: ");
+    std::cin >> n;
+    int pos = buscaB(vetor,0,9,n)
+    /*printf("exponente: ");
+    std::cin >> a;*/
+    //scanf("%d",&n);
+    std::cout <<  << std::endl;   
+}
