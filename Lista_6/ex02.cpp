@@ -29,6 +29,7 @@ int main(){
 	
 	while(i < n && j < m){
 		if(doces[j] >= necessidades[i]){
+			cout << "A Criança que precisava de " << necessidades[i] << " recebeu doce com " << doces[j] << " calorias" << endl;
 			satisfeitas++;
 			i++;
 			j++;
